@@ -1,7 +1,7 @@
 {
-	"imports": {
-		"fs": "@pearjs/fs",
-		"fs/promises": "@pearjs/fs/promises",
-		"os": "@pearjs/os"
-	}
+  "imports": {
+    "fs": "@pearjs/fs",
+    "fs/promises": "@pearjs/fs/promises",
+    "os": "@pearjs/os"
+  }
 }
