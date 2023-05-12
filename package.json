@@ -1,28 +1,28 @@
 {
-  "name": "@pearjs/boot",
+  "name": "bare-boot",
   "version": "1.0.0",
-  "description": "Boot drives in :pear:.js",
+  "description": "Boot drives in Bare",
   "main": "index.js",
   "files": [
     "index.js"
   ],
   "scripts": {
-    "test": "standard && pear -m import-map.json test.js"
+    "test": "standard && bare -m import-map.json test.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/holepunchto/pearjs-boot.git"
+    "url": "https://github.com/holepunchto/bare-boot.git"
   },
   "author": "Holepunch",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/holepunchto/pearjs-boot/issues"
+    "url": "https://github.com/holepunchto/bare-boot/issues"
   },
-  "homepage": "https://github.com/holepunchto/pearjs-boot#readme",
+  "homepage": "https://github.com/holepunchto/bare-boot#readme",
   "dependencies": {
-    "@pearjs/bundle": "^0.1.1",
-    "@pearjs/fs": "^1.4.0",
-    "@pearjs/os": "^1.0.0",
+    "bare-bundle": "^0.1.1",
+    "bare-fs": "^1.4.0",
+    "bare-os": "^1.0.0",
     "script-linker": "github:holepunchto/script-linker"
   },
   "devDependencies": {

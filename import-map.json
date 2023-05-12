@@ -1,7 +1,7 @@
 {
   "imports": {
-    "fs": "@pearjs/fs",
-    "fs/promises": "@pearjs/fs/promises",
-    "os": "@pearjs/os"
+    "fs": "bare-fs",
+    "fs/promises": "bare-fs/promises",
+    "os": "bare-os"
   }
 }

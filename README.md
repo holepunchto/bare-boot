@@ -1,9 +1,9 @@
-# @pearjs/boot
+# bare-boot
 
-Boot drives in :pear:.js.
+Boot drives in Bare.
 
 ```
-npm i @pearjs/boot
+npm i bare-boot
 ```
 
 ## License

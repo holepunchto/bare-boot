@@ -1,7 +1,7 @@
 const path = require('path')
 const Module = require('module')
 const ScriptLinker = require('script-linker')
-const Bundle = require('@pearjs/bundle')
+const Bundle = require('bare-bundle')
 
 module.exports = async function boot (drive, opts = {}) {
   const linker = new ScriptLinker({
