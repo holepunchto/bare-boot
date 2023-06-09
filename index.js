@@ -8,9 +8,15 @@ module.exports = async function boot (drive) {
     files.set(entry.key, await drive.get(entry.key))
   }
 
-  const pkg = JSON.parse(files.get('/package.json'))
+  let main = '/index.js'
 
-  const main = path.resolve('/', pkg.main || 'index.js')
+  if (files.has('/package.json')) {
+    const pkg = JSON.parse(files.get('/package.json'))
+
+    if (pkg.main) {
+      main = path.resolve('/', pkg.main)
+    }
+  }
 
   const module = Module.load(main, {
     protocol: new Module.Protocol({
