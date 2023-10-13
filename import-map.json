@@ -1,7 +1,6 @@
 {
   "imports": {
     "fs": "bare-fs",
-    "fs/promises": "bare-fs/promises",
-    "os": "bare-os"
+    "fs/promises": "bare-fs/promises"
   }
 }
