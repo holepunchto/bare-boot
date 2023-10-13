@@ -89,7 +89,7 @@ async function writePrebuild (drive, entry, platform, arch) {
 
   if (info.version) target += `@${info.version}`
 
-  target += '.bare'
+  target += path.extname(entry.key)
 
   try {
     await fs.access(target)
