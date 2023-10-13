@@ -85,7 +85,7 @@ async function writePrebuild (drive, entry, platform, arch) {
 
   if (info === null || typeof info.name !== 'string') return
 
-  let target = path.join(Addon.path, info.name)
+  let target = path.join(Addon.path, info.name.replace(/\//g, '+'))
 
   if (info.version) target += `@${info.version}`
 
