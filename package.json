@@ -6,6 +6,9 @@
   "files": [
     "index.js"
   ],
+  "workspaces": [
+    "test/fixtures/*"
+  ],
   "scripts": {
     "test": "standard && bare -m import-map.json test.js"
   },

@@ -3,9 +3,15 @@ const boot = require('.')
 const { localdrive, hyperdrive } = require('./test/helpers')
 
 test('file system', async (t) => {
-  const drive = localdrive(t, 'test/fixtures/module')
+  const drive = localdrive(t, 'test/fixtures/basic')
 
   t.is(await boot(drive), 'Hello from drive')
+})
+
+test('file system, addon', async (t) => {
+  const drive = localdrive(t, 'test/fixtures/addon')
+
+  t.is(await boot(drive), 'Hello from addon')
 })
 
 test('memory', async (t) => {

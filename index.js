@@ -2,19 +2,21 @@ const path = require('path')
 const Module = require('module')
 
 module.exports = async function boot (drive) {
+  const root = drive.root || '/'
+
   const files = new Map()
 
   for await (const entry of drive.list()) {
-    files.set(entry.key, await drive.get(entry.key))
+    files.set(path.join(root, entry.key), await drive.get(entry.key))
   }
 
-  let main = '/index.js'
+  let main = path.join(root, 'index.js')
 
-  if (files.has('/package.json')) {
-    const pkg = JSON.parse(files.get('/package.json'))
+  if (files.has(path.join(root, 'package.json'))) {
+    const pkg = JSON.parse(files.get(path.join(root, 'package.json')))
 
     if (pkg.main) {
-      main = path.resolve('/', pkg.main)
+      main = path.join(root, pkg.main)
     }
   }
 
