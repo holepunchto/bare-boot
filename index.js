@@ -76,12 +76,10 @@ async function writePrebuild (drive, entry, platform, arch) {
 
   if (pkg === null) return
 
-  let info
+  let info = null
   try {
     info = JSON.parse(pkg.toString())
-  } catch {
-    info = null
-  }
+  } catch {}
 
   if (info === null || typeof info.name !== 'string') return
 
