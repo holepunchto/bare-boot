@@ -1,18 +1,18 @@
-const fs = require('fs/promises')
-const path = require('path')
-const Module = require('module')
-const Addon = require('addon')
+const fs = require('bare-fs/promises')
+const path = require('bare-path')
+const os = require('bare-os')
+const Module = require('bare-module')
 
 module.exports = async function boot (drive, opts = {}) {
   const {
-    platform = process.platform,
-    arch = process.arch,
-    cwd = process.cwd()
+    platform = os.platform(),
+    arch = os.arch(),
+    cwd = os.cwd()
   } = opts
 
-  const previousCwd = process.cwd()
+  const previousCwd = os.cwd()
 
-  if (cwd !== previousCwd) process.chdir(cwd)
+  if (cwd !== previousCwd) os.chdir(cwd)
 
   try {
     const root = drive.root || cwd
@@ -43,6 +43,13 @@ module.exports = async function boot (drive, opts = {}) {
 
     const module = Module.load(main, {
       protocol: new Module.Protocol({
+        preresolve (specifier, dirname) {
+          if (specifier[0] === '.') specifier = path.join(dirname, specifier)
+          else if (path.isAbsolute(specifier)) specifier = path.normalize(specifier)
+
+          return specifier
+        },
+
         exists (filename) {
           return files.has(filename)
         },
@@ -55,13 +62,11 @@ module.exports = async function boot (drive, opts = {}) {
 
     return module.exports
   } finally {
-    if (cwd !== previousCwd) process.chdir(previousCwd)
+    if (cwd !== previousCwd) os.chdir(previousCwd)
   }
 }
 
 async function writePrebuild (drive, entry, platform, arch) {
-  if (Addon.path === null) return
-
   if (path.basename(path.dirname(entry.key)) !== `${platform}-${arch}`) return
 
   let pkg = null
@@ -83,7 +88,7 @@ async function writePrebuild (drive, entry, platform, arch) {
 
   if (info === null || typeof info.name !== 'string') return
 
-  let target = path.join(Addon.path, info.name.replace(/\//g, '+'))
+  let target = path.resolve('prebuilds', `${platform}-${arch}`, info.name.replace(/\//g, '+'))
 
   if (info.version) target += `@${info.version}`
 

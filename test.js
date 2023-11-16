@@ -1,7 +1,6 @@
-const fs = require('fs')
-const path = require('path')
-const Addon = require('addon')
 const test = require('brittle')
+const fs = require('bare-fs')
+const path = require('bare-path')
 const tmp = require('test-tmp')
 const boot = require('.')
 const { localdrive, hyperdrive } = require('./test/helpers')
@@ -32,8 +31,6 @@ test('memory, addon', async (t) => {
   await localdrive(t, 'test/fixtures/addon').mirror(drive).done()
 
   const cwd = await tmp(t)
-
-  Addon.path = path.join(cwd, 'prebuilds')
 
   t.is(await boot(drive, { cwd }), 'Hello from addon')
 })
