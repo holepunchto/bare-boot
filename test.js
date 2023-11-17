@@ -1,6 +1,4 @@
 const test = require('brittle')
-const fs = require('bare-fs')
-const path = require('bare-path')
 const tmp = require('test-tmp')
 const boot = require('.')
 const { localdrive, hyperdrive } = require('./test/helpers')

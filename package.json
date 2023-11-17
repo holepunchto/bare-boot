@@ -16,7 +16,7 @@
     "test/fixtures/*"
   ],
   "scripts": {
-    "test": "standard && bare -m import-map.json test.js"
+    "test": "standard && bare -m package.json test.js"
   },
   "repository": {
     "type": "git",
