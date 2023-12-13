@@ -43,13 +43,6 @@ module.exports = async function boot (drive, opts = {}) {
 
     const module = Module.load(main, {
       protocol: new Module.Protocol({
-        preresolve (specifier, dirname) {
-          if (specifier[0] === '.') specifier = path.join(dirname, specifier)
-          else if (path.isAbsolute(specifier)) specifier = path.normalize(specifier)
-
-          return specifier
-        },
-
         exists (filename) {
           return files.has(filename)
         },
