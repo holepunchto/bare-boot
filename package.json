@@ -6,12 +6,6 @@
   "files": [
     "index.js"
   ],
-  "imports": {
-    "fs": "bare-fs",
-    "fs/*": "bare-fs/*",
-    "os": "bare-os",
-    "path": "bare-path"
-  },
   "workspaces": [
     "test/fixtures/*"
   ],
