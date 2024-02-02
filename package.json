@@ -8,7 +8,7 @@
   ],
   "imports": {
     "fs": "bare-fs",
-    "fs/promises": "bare-fs/promises",
+    "fs/*": "bare-fs/*",
     "os": "bare-os",
     "path": "bare-path"
   },
@@ -16,7 +16,7 @@
     "test/fixtures/*"
   ],
   "scripts": {
-    "test": "standard && bare -m package.json test.js"
+    "test": "standard && bare test.js"
   },
   "repository": {
     "type": "git",
