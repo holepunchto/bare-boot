@@ -1,6 +1,7 @@
 const fs = require('bare-fs/promises')
 const path = require('bare-path')
 const os = require('bare-os')
+const url = require('bare-url')
 const Module = require('bare-module')
 
 module.exports = async function boot (drive, opts = {}) {
@@ -41,14 +42,14 @@ module.exports = async function boot (drive, opts = {}) {
       }
     }
 
-    const module = Module.load(main, {
+    const module = Module.load(url.pathToFileURL(main), {
       protocol: new Module.Protocol({
-        exists (filename) {
-          return files.has(filename)
+        exists (u) {
+          return files.has(url.fileURLToPath(u))
         },
 
-        read (filename) {
-          return files.get(filename)
+        read (u) {
+          return files.get(url.fileURLToPath(u))
         }
       })
     })
