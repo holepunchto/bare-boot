@@ -7,7 +7,7 @@ include(bare)
 add_bare_module(addon)
 
 target_sources(
-  addon
+  ${addon}
   PRIVATE
     binding.c
 )

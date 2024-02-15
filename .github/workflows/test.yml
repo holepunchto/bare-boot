@@ -26,6 +26,8 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node }}
-    - run: npm install -g bare-runtime
+    - run: npm install -g bare-runtime bare-dev
     - run: npm install
+    - run: bare-dev install
+      working-directory: test/fixtures/addon
     - run: npm test
