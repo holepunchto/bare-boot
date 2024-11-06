@@ -16,7 +16,7 @@ jobs:
           arch: x64
         - os: macos-latest
           platform: darwin
-          arch: x64
+          arch: arm64
         - os: windows-latest
           platform: win32
           arch: x64
@@ -27,8 +27,6 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
-    - run: npm install -g bare-runtime bare-dev
+    - run: npm install -g bare-runtime
     - run: npm install
-    - run: bare-dev install
-      working-directory: test/fixtures/addon
     - run: npm test

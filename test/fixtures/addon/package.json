@@ -1,5 +1,8 @@
 {
   "name": "addon",
   "version": "1.0.0",
-  "main": "entry.js"
+  "main": "entry.js",
+  "devDependencies": {
+    "cmake-bare": "^1.1.15"
+  }
 }
