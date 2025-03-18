@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/holepunchto/bare-boot#readme",
   "dependencies": {
-    "bare-fs": "^3.0.0",
+    "bare-fs": "^4.0.1",
     "bare-module": "^4.0.0",
     "bare-os": "^3.0.1",
     "bare-path": "^3.0.0",
@@ -31,12 +31,10 @@
   },
   "devDependencies": {
     "brittle": "^3.1.1",
-    "corestore": "^6.5.1",
-    "hyperdrive": "^11.0.1",
-    "localdrive": "^1.5.0",
+    "corestore": "^7.0.19",
+    "hyperdrive": "^12.0.1",
+    "localdrive": "^2.1.0",
     "prettier": "^3.5.3",
-    "prettier-config-standard": "^7.0.0",
-    "random-access-memory": "^6.1.0",
-    "test-tmp": "^1.0.2"
+    "prettier-config-standard": "^7.0.0"
   }
 }

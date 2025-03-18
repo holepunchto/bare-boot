@@ -1,19 +1,18 @@
-const RAM = require('random-access-memory')
 const Corestore = require('corestore')
 const Hyperdrive = require('hyperdrive')
 const Localdrive = require('localdrive')
 
-const corestore = (exports.corestore = async function corestore(t) {
-  const storage = new Corestore(RAM)
+exports.corestore = async function corestore(t) {
+  const storage = new Corestore(await t.tmp())
   await storage.ready()
 
   t.teardown(() => storage.close())
 
   return storage
-})
+}
 
 exports.hyperdrive = async function hypercore(t, storage) {
-  const drive = new Hyperdrive(storage || (await corestore(t)))
+  const drive = new Hyperdrive(storage || (await exports.corestore(t)))
   await drive.ready()
 
   t.teardown(() => drive.close())
