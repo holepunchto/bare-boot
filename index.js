@@ -4,12 +4,8 @@ const os = require('bare-os')
 const url = require('bare-url')
 const Module = require('bare-module')
 
-module.exports = async function boot (drive, opts = {}) {
-  const {
-    platform = os.platform(),
-    arch = os.arch(),
-    cwd = os.cwd()
-  } = opts
+module.exports = async function boot(drive, opts = {}) {
+  const { platform = os.platform(), arch = os.arch(), cwd = os.cwd() } = opts
 
   const previousCwd = os.cwd()
 
@@ -44,11 +40,11 @@ module.exports = async function boot (drive, opts = {}) {
 
     const module = Module.load(url.pathToFileURL(main), {
       protocol: new Module.Protocol({
-        exists (u) {
+        exists(u) {
           return files.has(url.fileURLToPath(u))
         },
 
-        read (u) {
+        read(u) {
           return files.get(url.fileURLToPath(u))
         }
       })
@@ -60,7 +56,7 @@ module.exports = async function boot (drive, opts = {}) {
   }
 }
 
-async function writePrebuild (drive, entry, platform, arch) {
+async function writePrebuild(drive, entry, platform, arch) {
   if (path.basename(path.dirname(entry.key)) !== `${platform}-${arch}`) return
 
   let pkg = null
@@ -82,7 +78,11 @@ async function writePrebuild (drive, entry, platform, arch) {
 
   if (info === null || typeof info.name !== 'string') return
 
-  let target = path.resolve('prebuilds', `${platform}-${arch}`, info.name.replace(/\//g, '+'))
+  let target = path.resolve(
+    'prebuilds',
+    `${platform}-${arch}`,
+    info.name.replace(/\//g, '+')
+  )
 
   if (info.version) target += `@${info.version}`
 

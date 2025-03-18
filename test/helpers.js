@@ -3,17 +3,17 @@ const Corestore = require('corestore')
 const Hyperdrive = require('hyperdrive')
 const Localdrive = require('localdrive')
 
-const corestore = exports.corestore = async function corestore (t) {
+const corestore = (exports.corestore = async function corestore(t) {
   const storage = new Corestore(RAM)
   await storage.ready()
 
   t.teardown(() => storage.close())
 
   return storage
-}
+})
 
-exports.hyperdrive = async function hypercore (t, storage) {
-  const drive = new Hyperdrive(storage || await corestore(t))
+exports.hyperdrive = async function hypercore(t, storage) {
+  const drive = new Hyperdrive(storage || (await corestore(t)))
   await drive.ready()
 
   t.teardown(() => drive.close())
@@ -21,6 +21,6 @@ exports.hyperdrive = async function hypercore (t, storage) {
   return drive
 }
 
-exports.localdrive = function localdrive (t, root) {
+exports.localdrive = function localdrive(t, root) {
   return new Localdrive(root)
 }
