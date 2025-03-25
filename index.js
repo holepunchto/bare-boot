@@ -21,7 +21,10 @@ module.exports = async function boot(drive, entry = '/index.js', opts = {}) {
 
   const module = Module.load(
     new URL(`drive:///${path.basename(entry)}.bundle`),
-    bundle
+    bundle,
+    {
+      cache: Object.create(null)
+    }
   )
 
   return module.exports

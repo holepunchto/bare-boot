@@ -40,3 +40,11 @@ test('memory, addon', { skip: true }, async (t) => {
 
   t.is(await boot(drive, '/entry.js', { cwd }), 'Hello from addon')
 })
+
+test('module collision', async (t) => {
+  const a = localdrive(t, 'test/fixtures/collision/a')
+  const b = localdrive(t, 'test/fixtures/collision/b')
+
+  t.is(await boot(a), 'Hello A')
+  t.is(await boot(b), 'Hello B')
+})
