@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/holepunchto/bare-boot#readme",
   "dependencies": {
-    "bare-module": "^4.0.0",
+    "bare-module": "^6.0.1",
     "bare-module-traverse": "^1.4.0",
     "bare-pack-drive": "^1.0.2",
     "bare-path": "^3.0.0"
