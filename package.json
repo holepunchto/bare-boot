@@ -1,6 +1,6 @@
 {
   "name": "bare-boot",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "Boot drives in Bare",
   "exports": {
     ".": "./index.js",
