@@ -9,13 +9,10 @@ module.exports = async function boot(drive, entry = '/index.js', opts = {}) {
     entry = '/index.js'
   }
 
-  const { platform, arch, simulator, target } = opts
+  const { host } = opts
 
   const bundle = await pack(drive, entry, {
-    platform,
-    arch,
-    simulator,
-    target,
+    host,
     resolve: resolve.bare
   })
 
