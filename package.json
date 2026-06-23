@@ -36,6 +36,7 @@
     "hyperdrive": "^13.0.2",
     "localdrive": "^2.1.0",
     "prettier": "^3.5.3",
-    "prettier-config-holepunch": "^2.0.0"
+    "prettier-config-holepunch": "^2.0.0",
+    "test-tmp": "^1.4.0"
   }
 }
