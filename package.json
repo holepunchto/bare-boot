@@ -23,10 +23,12 @@
   },
   "homepage": "https://github.com/holepunchto/bare-boot#readme",
   "dependencies": {
+    "bare-fs": "^4.7.2",
     "bare-module": "^6.0.1",
     "bare-module-traverse": "^2.0.0",
-    "bare-pack-drive": "^2.0.0",
-    "bare-path": "^3.0.0"
+    "bare-pack-drive": "^2.1.0",
+    "bare-path": "^3.0.0",
+    "bare-url": "^2.4.5"
   },
   "devDependencies": {
     "brittle": "^3.1.1",
